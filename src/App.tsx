@@ -2485,7 +2485,7 @@ export default function App() {
                           const reader = new FileReader();
                           reader.onload = (event) => {
                             try {
-                              const restoredData = JSON.parse(event.target.result);
+                              const restoredData = JSON.parse(typeof event.target.result === 'string' ? event.target.result : '');
                               if (restoredData.jobNotes) setJobNotes(restoredData.jobNotes);
                               if (restoredData.customers) setCustomers(restoredData.customers);
                               alert('System data successfully restored!');
